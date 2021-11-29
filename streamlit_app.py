@@ -37,12 +37,8 @@ def main():
         st.text('This is some text.')
     elif app_mode == "Testing":
        st.sidebar.success('GG')
-    df = pd.DataFrame({
-      'first column': [1, 2, 3, 4],
-      'second column': [10, 20, 30, 40]
-    })
-    
-    df
+    dataframe = np.random.randn(10, 20)
+    st.dataframe(dataframe)
 
 
 if __name__ == "__main__":
