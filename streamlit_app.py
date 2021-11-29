@@ -23,6 +23,7 @@ import numpy as np
 import os, urllib, cv2
 import streamlit as st
 import pandas as pd
+import imghdr
 import time
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
@@ -36,6 +37,16 @@ def main():
     if app_mode == "Training":
         st.sidebar.success('To continue select "Run the app".')
         st.text('This is some text.')
+        directory = os.path.join('static/input')
+        photos = []
+        for file in os.listdir(directory):
+            filepath = os.path.join(directory, file)
+
+            # Find all valid images
+            if imghdr.what(filepath) is not None:
+                photos.append(file)
+
+        photos.sort()
     elif app_mode == "Testing":
        st.sidebar.success('GG')
        dataframe = np.random.randn(10, 20)
