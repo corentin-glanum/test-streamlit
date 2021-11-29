@@ -38,37 +38,37 @@ def main():
         st.text('This is some text.')
     elif app_mode == "Testing":
        st.sidebar.success('GG')
-    dataframe = np.random.randn(10, 20)
-    st.dataframe(dataframe)
-    x = st.slider('x')  # 👈 this is a widget
-    st.write(x, 'squared is', x * x)
-    st.text_input("Your name", key="name")
-    # You can access the value at any point with:
-    st.session_state.name
-    df = pd.DataFrame({
-        'first column': [1, 2, 3, 4],
-        'second column': [10, 20, 30, 40]
-        })
+       dataframe = np.random.randn(10, 20)
+       st.dataframe(dataframe)
+       x = st.slider('x')  # 👈 this is a widget
+       st.write(x, 'squared is', x * x)
+       st.text_input("Your name", key="name")
+       # You can access the value at any point with:
+       st.session_state.name
+       df = pd.DataFrame({
+           'first column': [1, 2, 3, 4],
+           'second column': [10, 20, 30, 40]
+           })
+       
+       option = st.selectbox(
+           'Which number do you like best?',
+            df['first column'])
+       
+       'You selected: ', option
+        
+       'Starting a long computation...'
     
-    option = st.selectbox(
-        'Which number do you like best?',
-         df['first column'])
-    
-    'You selected: ', option
-    
-    'Starting a long computation...'
-
-    # Add a placeholder
-    latest_iteration = st.empty()
-    bar = st.progress(0)
-    
-    for i in range(100):
-      # Update the progress bar with each iteration.
-      latest_iteration.text(f'Iteration {i+1}')
-      bar.progress(i + 1)
-      time.sleep(0.1)
-    
-    '...and now we\'re done!'
+       # Add a placeholder
+       latest_iteration = st.empty()
+       bar = st.progress(0)
+        
+       for i in range(100):
+         # Update the progress bar with each iteration.
+         latest_iteration.text(f'Iteration {i+1}')
+         bar.progress(i + 1)
+         time.sleep(0.1)
+        
+       '...and now we\'re done!'
 
 if __name__ == "__main__":
     main()
