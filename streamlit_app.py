@@ -51,6 +51,9 @@ def main():
         pressed = st.sidebar.button('Magic Time')
         if pressed:
             st.write('rererer')
+        pic = os.path.join(directory, option)
+
+        run_app(pic)
     elif app_mode == "Testing":
        st.sidebar.success('GG')
        dataframe = np.random.randn(10, 20)
