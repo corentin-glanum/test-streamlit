@@ -27,7 +27,7 @@ import pandas as pd
 import imghdr
 import time
 import tensorflow as tf
-from tensorflow import keras
+from tf import keras
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
 
