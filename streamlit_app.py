@@ -39,6 +39,8 @@ def main():
        st.sidebar.success('GG')
     dataframe = np.random.randn(10, 20)
     st.dataframe(dataframe)
+    x = st.slider('x')  # 👈 this is a widget
+    st.write(x, 'squared is', x * x)
 
 
 if __name__ == "__main__":
