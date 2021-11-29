@@ -27,6 +27,9 @@ import imghdr
 import time
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
+from keras.applications.resnet50 import ResNet50
+from keras.preprocessing import image
+from keras.applications.resnet50 import preprocess_input, decode_predictions
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
 def main():
@@ -91,11 +94,18 @@ def main():
        '...and now we\'re done!'
 
 def run_app(img):
-    classifier = load_model('models/cnn_80epochs_imgsize160.h5')
+    evaluate(img)
     
-    pred=classifier.predict_generator(img, verbose=1)
-    st.write(pred)
-    st.image(img)
+def evaluate(img_fname):
+    model = ResNet50(weights='imagenet')
+    img = image.load_img(img_fname, target_size=(224, 224))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+    preds = model.predict(x)
+    # print the probability and category name for the 5 categories 
+    # with highest probability: 
+    st.image(img_fname)
     
 if __name__ == "__main__":
     main()
