@@ -47,6 +47,7 @@ def main():
                 photos.append(file)
 
         photos.sort()
+        option = st.sidebar.selectbox('Please select a sample image, then click Magic Time button', photos)
     elif app_mode == "Testing":
        st.sidebar.success('GG')
        dataframe = np.random.randn(10, 20)
