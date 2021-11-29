@@ -106,6 +106,7 @@ def evaluate(img_fname):
     # print the probability and category name for the 5 categories 
     # with highest probability: 
     st.image(img_fname)
+    st.write(preds)
     
 if __name__ == "__main__":
     main()
