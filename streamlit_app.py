@@ -91,7 +91,7 @@ def main():
        '...and now we\'re done!'
 
 def run_app(img):
-    classifier = load_model('../input/weight/cnn/cnn.h5')
+    classifier = load_model('models/cnn_80epochs_imgsize160.h5')
     
     pred=classifier.predict_generator(img, steps=5, verbose=1)
     st.write(pred)
