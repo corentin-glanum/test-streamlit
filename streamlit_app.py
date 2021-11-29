@@ -25,6 +25,8 @@ import streamlit as st
 import pandas as pd
 import imghdr
 import time
+from keras.models import load_model
+from keras.preprocessing.image import ImageDataGenerator
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
 def main():
@@ -89,6 +91,10 @@ def main():
        '...and now we\'re done!'
 
 def run_app(img):
+    classifier = load_model('../input/weight/cnn/cnn.h5')
+    
+    pred=classifier.predict_generator(img, steps=5, verbose=1)
+    st.write(pred)
     st.image(img)
     
 if __name__ == "__main__":
