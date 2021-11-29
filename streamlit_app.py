@@ -93,7 +93,7 @@ def main():
 def run_app(img):
     classifier = load_model('models/cnn_80epochs_imgsize160.h5')
     
-    pred=classifier.predict_generator(img, steps=5, verbose=1)
+    pred=classifier.predict_generator(img, verbose=1)
     st.write(pred)
     st.image(img)
     
