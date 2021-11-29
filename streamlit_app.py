@@ -48,6 +48,9 @@ def main():
 
         photos.sort()
         option = st.sidebar.selectbox('Please select a sample image, then click Magic Time button', photos)
+        pressed = st.sidebar.button('Magic Time')
+        if pressed:
+            st.write('rererer')
     elif app_mode == "Testing":
        st.sidebar.success('GG')
        dataframe = np.random.randn(10, 20)
