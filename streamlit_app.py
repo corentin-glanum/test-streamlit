@@ -39,7 +39,7 @@ def main():
     if app_mode == "Training":
         st.sidebar.success('To continue select "Run the app".')
         st.text('This is some text.')
-        directory = os.path.join('static/input')
+        directory = os.path.join('data')
         photos = []
         for file in os.listdir(directory):
             filepath = os.path.join(directory, file)
