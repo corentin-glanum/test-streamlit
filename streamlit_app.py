@@ -32,6 +32,7 @@ def main():
         ["Training", "Testing"])
     if app_mode == "Training":
         st.sidebar.success('To continue select "Run the app".')
+        st.text('This is some text.')
     elif app_mode == "Testing":
        st.sidebar.success('GG')
     
