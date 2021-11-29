@@ -97,12 +97,13 @@ def run_app(img):
     evaluate(img)
     
 def evaluate(img_fname):
+    classifier = load_model('models/cnn_80epochs_imgsize160.h5')
     model = ResNet50(weights='imagenet')
     img = image.load_img(img_fname, target_size=(224, 224))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
-    preds = model.predict(x)
+    preds = classifier.predict(x)
     # print the probability and category name for the 5 categories 
     # with highest probability: 
     st.image(img_fname)
