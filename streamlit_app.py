@@ -18,7 +18,6 @@
 
 import streamlit as st
 import altair as alt
-import keras
 import pandas as pd
 import numpy as np
 import os, urllib, cv2
@@ -26,8 +25,6 @@ import streamlit as st
 import pandas as pd
 import imghdr
 import time
-import tensorflow as tf
-from tf import keras
 from keras.models import load_model
 from keras.preprocessing.image import ImageDataGenerator
 
