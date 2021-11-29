@@ -88,5 +88,8 @@ def main():
         
        '...and now we\'re done!'
 
+def run_app(img):
+    st.image(img)
+    
 if __name__ == "__main__":
     main()
